@@ -1,0 +1,35 @@
+<nav class="bg-white mb-4 shadow rounded">
+  <ul class="tabs lis-reset flex">
+    <li class="active" data-tab="calendar">
+      <%= link_to "#calendar", class:"tab flex items-center" %>
+    </li>
+    <li  data-tab="all-meetings">
+      <%= link_to "#all-meetings", class:"tab flex items-center" %>
+    </li>
+  </ul>
+</nav>
+<div class="bg-white p-10 border rounded">
+  <div class="tab-panel">
+    <h1>meetings</h1>
+    <% meetings.each do |meeting| %>
+      <div class="flex flex-warp items-center justify-start p-4 border-b border-grey-light mb-6">
+        <div class="flex-1 flex justify-between"
+          <div class="">
+            <%= link_to meeting.name, meeting ,class:"link mr-4" %>
+          </div>
+        </div>
+        <div class="">
+            <%= readable_time(meeting.start_time) %>
+            <%= readable_time(meeting.end_time) %>
+        </div>
+      </div>
+      <%= link_to "cancel meeting", meeting ,method: :delete, data: {confirm:"Are yoou sure? There's no refunds."},class:"btn btn-danger" if admin? %>
+    <% end %>
+  </div>
+  <div id="calendar" class="tab-panel active">
+    <h2>Meeting Calendar</h2>
+    <div id="meeting-calendar">
+      <%= render "calendar", meetings:meetings  %>
+    </div>
+  </div>
+</div>
