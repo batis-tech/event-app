@@ -1,10 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user
-  before_action :set_comment, only:[:create, :destroy]
+  before_action :authenticate_user!
+  before_action :set_comment, only:[:create, :destroy, :show, :update]
   before_action :set_meeting
 
   def new
    @comment = Comment.new
+
   end
 
   def create
@@ -17,7 +18,7 @@ class CommentsController < ApplicationController
       format.js
     else
       format.html {redirect_to meeting_path(@meeting), notice: "Your commentdid not saved"}
-      ormat.js
+      format.js
     end
   end
   end

@@ -1,0 +1,6 @@
+<p><%=  comment.user.username %>commented<%= time_ago_in_words(comment.created_at) %>ago</p>
+<p><%= sanitize comment.reply %></p>
+
+<% if author_of(comment) %>
+  <%= link_to "Delete", meeeting_comment_path(comment.meeting, comment), method: :delete, data: { confirm: "Are you sure"}, class:"btn btn-danger" %>
+<% end %>
