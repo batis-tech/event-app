@@ -1,5 +1,5 @@
 
-<%= form_with(model: meeting) do |form| %>
+<%= form_with(model: meeting, class: "meeting-form") do |form| %>
   <% if meeting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
