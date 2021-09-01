@@ -77,3 +77,5 @@ document.addEventListener("turbolinks:load", function() {
       form.appendChild(hiddenInput);
     }
   }
+
+});
