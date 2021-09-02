@@ -1,4 +1,12 @@
-<div class="max-w-lg mx-auto mt-16 text-center">
-  <h1 class="mb-4 text-3xl font-black">Welcome to Kickoff Tailwind!</h1>
-  <p class="text-lg leading-snug">Use this starting point as a way to quickly set up a new project by generating files, installing gems, and more.</p>
+<div class="py-10 lg:py-20 px-4 border-b border-grey-light mb-4 text-indigo-darker">
+  <div class="container m-auto text-center">
+    <h1 class="text-xl lg:text-3xl">Welcome to evently</h1>
+    <p class="lead my-2 max-w-md m-auto leading-normal text-grey-darker text-lg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quaerat maiores, repellat minus fugit, non modi id.</p>
+
+    <% unless user_signed_in? %>
+    <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary my-3" %>
+    <% else %>
+    <%= link_to "Schedule a new session", new_meeting_path, class:"btn btn-primary my-3" %>
+    <% end %>
+  </div>
 </div>
